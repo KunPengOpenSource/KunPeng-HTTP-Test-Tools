@@ -17,7 +17,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using System.Net.Cache;
 
-namespace Qishi_Tester
+namespace HTTP_Tester
 {
     /// <summary>
     /// Window1.xaml 的交互逻辑
@@ -195,14 +195,15 @@ namespace Qishi_Tester
                         }
                         else
                         {
-                            MessageBox.Show("IP或域名格式不正确!请重新输入。");
+                            UMessageBox.Show("提示","IP或域名格式不正确!请重新输入。");
                             return;
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("IP或域名格式不正确!请重新输入。");
+                    
+                    UMessageBox.Show("提示","IP或域名格式不正确!请重新输入。");
                     return;
                 }
                 state = 1;
@@ -468,14 +469,14 @@ namespace Qishi_Tester
                         }
                         else
                         {
-                            MessageBox.Show("IP或域名格式不正确!请重新输入。");
+                            UMessageBox.Show("提示", "IP或域名格式不正确!请重新输入。");
                             return;
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("IP或域名格式不正确!请重新输入。");
+                    UMessageBox.Show("提示", "IP或域名格式不正确!请重新输入。");
                     return;
                 }
                 state = 1;
@@ -888,6 +889,8 @@ namespace Qishi_Tester
                 canvas4.Visibility = Visibility.Hidden;
                 btn2HttpMore2.Visibility = Visibility.Hidden;
                 canvas7.Visibility = Visibility.Hidden;
+                imgHttpStatus.Visibility = Visibility.Hidden;
+                imgHttpFast.Visibility = Visibility.Visible;
                 txDomain2.Text = null;
                 ck2Type1.IsChecked = true;
                 ck2Type2.IsChecked = false;
@@ -908,6 +911,8 @@ namespace Qishi_Tester
                 canvas3.Visibility = Visibility.Visible;
                 canvas4.Visibility = Visibility.Hidden;
                 btnHttpMore2.Visibility = Visibility.Hidden;
+                imgHttpStatus.Visibility = Visibility.Visible;
+                imgHttpFast.Visibility = Visibility.Hidden;
                 canvas6.Visibility = Visibility.Hidden;
                 txDomain1.Text = null;
                 ckType1.IsChecked = true;
@@ -948,11 +953,15 @@ namespace Qishi_Tester
                 txCookies2.Text = null;
                 txUsername2.Text = null;
                 txPwd2.Password = null;
+                imgHttpFast.Visibility = Visibility.Hidden;
+                imgHttpStatus.Visibility = Visibility.Hidden;
+
             }
         }
 
         private void btnHttpMore1_Click(object sender, RoutedEventArgs e)
         {
+
             if (state == 0)
             {
                 DataTable table = new DataTable();
@@ -965,7 +974,7 @@ namespace Qishi_Tester
                     UrlCheck(ref _host);
                     if (!IsValidHttp(_host))
                     {
-                        MessageBox.Show("域名格式不正确!请重新输入。");
+                        UMessageBox.Show("提示", "域名格式不正确!请重新输入。");
                         return;
                     }
                     else
@@ -990,6 +999,7 @@ namespace Qishi_Tester
                 btnHttpMore2.Visibility = Visibility.Visible;
                 canvas6.Visibility = Visibility.Visible;
                 canvas2.Visibility = Visibility.Hidden;
+                
             }
         }
 
@@ -1014,7 +1024,7 @@ namespace Qishi_Tester
                     UrlCheck(ref _host);
                     if (!IsValidHttp(_host))
                     {
-                        MessageBox.Show("域名格式不正确!请重新输入。");
+                        UMessageBox.Show("提示", "域名格式不正确!请重新输入。");
                         return;
                     }
                     else

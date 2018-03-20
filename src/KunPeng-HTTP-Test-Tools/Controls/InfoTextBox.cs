@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Controls;
 using System.Windows;
 
-namespace Qishi_Tester
+namespace HTTP_Tester
 {
     public class InfoTextBox : TextBox
     {
